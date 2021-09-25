@@ -10,14 +10,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.light,
-    alignItems: 'center',
-    justifyContent: 'center',
     padding: 10
   },
   input: {
     width: '100%',
     height: 40,
-    margin: 12,
+    marginBottom: 12,
     borderWidth: 1,
     padding: 10,
   },
@@ -26,6 +24,7 @@ const styles = StyleSheet.create({
     color: colors.dark,
   },
   link: {
+    paddingVertical: 10,
     color: colors.link
   }
 

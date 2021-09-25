@@ -11,12 +11,12 @@ const SignUp: React.FC<ISignUp> = ({navigation}) => {
   const [password, setPassword] = useState<string>("");
 
   const onSubmit = () => {
-    console.log("send request to firebase for sign up");
+    console.log("send request to firebase for sign up with props : ", email, password);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Inscription</Text>
+      {/*<Text style={styles.title}>Inscription</Text>*/}
       <TextInput
         style={styles.input}
         value={email}
@@ -28,7 +28,7 @@ const SignUp: React.FC<ISignUp> = ({navigation}) => {
         value={password}
         onChangeText={setPassword}
         placeholder="Mot de passe"
-        textContentType="password"
+        secureTextEntry={true}
       />
       <Button
         onPress={onSubmit}

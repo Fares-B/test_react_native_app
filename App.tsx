@@ -11,10 +11,17 @@ export default function App() {
   return (
     <NavigationContainer >
       <Stack.Navigator>
+
+        <Stack.Screen
+          name={APP_ROUTES.home}
+          component={Views.Home}
+        />
+
         <Stack.Screen
           name={APP_ROUTES.signIn}
           component={Views.SignIn}
         />
+
         <Stack.Screen
           name={APP_ROUTES.signUp}
           component={Views.SignUp}
