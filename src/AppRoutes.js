@@ -1,5 +1,6 @@
 const APP_ROUTES = {
   home: "Accueil",
+  loading: "Chargement",
   signIn: "Connexion",
   signUp: "Inscription"
 };

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {Button, Text, TextInput, View} from 'react-native';
+import {Button, TextInput, View} from 'react-native';
+import firebase from "firebase";
 
 import ISignIn from "./type";
 import Component from "../../components";
@@ -11,7 +12,16 @@ const SignIn: React.FC<ISignIn> = ({navigation}) => {
   const [password, setPassword] = useState<string>("");
 
   const onSubmit = () => {
-    console.log("send request to firebase for sign in with props : ", email, password);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        navigation.navigate(APP_ROUTES.home);
+        console.log('User connected !');
+      })
+      .catch(e => {
+        console.log(e);
+      })
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {Button, Text, TextInput, View} from 'react-native';
+import {Button, TextInput, View} from 'react-native';
+import firebase from 'firebase';
 
 import ISignUp from "./type";
 import styles from "../../styles";
@@ -11,7 +12,16 @@ const SignUp: React.FC<ISignUp> = ({navigation}) => {
   const [password, setPassword] = useState<string>("");
 
   const onSubmit = () => {
-    console.log("send request to firebase for sign up with props : ", email, password);
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        navigation.navigate(APP_ROUTES.home);
+        console.log('User account created & signed in!');
+      })
+      .catch(e => {
+        console.log(e);
+      })
   };
 
   return (
