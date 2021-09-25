@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import {Button, Text, TextInput, View} from 'react-native';
 
 import ISignIn from "./type";
+import Component from "../../components";
 import styles from "../../styles";
+import APP_ROUTES from "../../AppRoutes";
 
-const SignIn: React.FC<ISignIn> = () => {
+const SignIn: React.FC<ISignIn> = ({navigation}) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -31,6 +33,11 @@ const SignIn: React.FC<ISignIn> = () => {
       <Button
         onPress={onSubmit}
         title="Connexion"
+      />
+      <Component.Link
+        text="Vous n'avez pas encore de compte ?"
+        navigateTo={APP_ROUTES.signUp}
+        navigation={navigation}
       />
     </View>
   );
