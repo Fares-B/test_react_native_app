@@ -1,4 +1,5 @@
 const APP_ROUTES = {
+  home: "Accueil",
   signIn: "Connexion",
   signUp: "Inscription"
 };
