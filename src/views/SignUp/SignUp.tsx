@@ -3,8 +3,10 @@ import {Button, Text, TextInput, View} from 'react-native';
 
 import ISignUp from "./type";
 import styles from "../../styles";
+import Component from "../../components";
+import APP_ROUTES from "../../AppRoutes";
 
-const SignUp: React.FC<ISignUp> = () => {
+const SignUp: React.FC<ISignUp> = ({navigation}) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -31,6 +33,11 @@ const SignUp: React.FC<ISignUp> = () => {
       <Button
         onPress={onSubmit}
         title="S'inscrire"
+      />
+      <Component.Link
+        text="Vous avez déjà un compte ?"
+        navigateTo={APP_ROUTES.signIn}
+        navigation={navigation}
       />
     </View>
   );

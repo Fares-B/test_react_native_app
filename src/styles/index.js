@@ -2,7 +2,8 @@ import {StyleSheet} from "react-native";
 
 const colors = {
   light: '#fff',
-  dark: '#333'
+  dark: '#333',
+  link: '#36a'
 }
 
 const styles = StyleSheet.create({
@@ -23,7 +24,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: colors.dark,
+  },
+  link: {
+    color: colors.link
   }
+
 });
 
 export default styles;
