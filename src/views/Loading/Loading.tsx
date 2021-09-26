@@ -1,8 +1,9 @@
 import React from "react";
 import {Text, View} from "react-native";
-import ILoading from "./type";
 import firebase from "firebase";
+
 import APP_ROUTES from "../../AppRoutes";
+import ILoading from "./type";
 
 
 const Loading: React.FC<ILoading> = ({navigation}) => {

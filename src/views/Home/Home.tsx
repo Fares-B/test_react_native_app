@@ -3,23 +3,28 @@ import {Button, FlatList, Text, TextInput, View} from 'react-native';
 
 import IHome from "./type";
 import styles from "../../styles";
-import APP_ROUTES from "../../AppRoutes";
+import firebase from "firebase";
+
 
 const Home: React.FC<IHome> = ({navigation}) => {
   const [list, setList] = useState<string[]>([]);
+  const [userId, setUserID] = useState<string|undefined>();
 
-
-  // useEffect(() => {
-  //   if (true) {
-  //     navigation.navigate(APP_ROUTES.signIn);
-  //   }
-  // }, [true]);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user?.uid) return;
+      setUserID(user.uid);
+      firebase.database().ref(`/list`).child(user.uid).once("value", snapshot => {
+        setList(snapshot.val())
+      });
+    })
+  }, []);
 
   const onSubmit = (): void => {
-    console.log(list);
-
+    if (!userId) return;
+    const ref = firebase.database().ref(`/list`);
+    ref.child(userId).set(list);
   }
-
 
   const InputItem: React.FC<any> = ({item, index}) => {
     return (
