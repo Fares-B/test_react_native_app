@@ -15,7 +15,8 @@ const Home: React.FC<IHome> = ({navigation}) => {
       if (!user?.uid) return;
       setUserID(user.uid);
       firebase.database().ref(`/list`).child(user.uid).once("value", snapshot => {
-        setList(snapshot.val())
+        if (snapshot.val())
+          setList(snapshot.val())
       });
     })
   }, []);
