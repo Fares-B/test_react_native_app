@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+
 const colors = {
   light: '#fff',
   dark: '#333',
@@ -14,9 +15,9 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     height: 40,
-    marginBottom: 10,
-    borderWidth: 15,
-    padding: 11,
+    marginBottom: 12,
+    borderWidth: 1,
+    padding: 10,
   },
   title: {
     fontSize: 20,
